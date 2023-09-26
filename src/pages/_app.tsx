@@ -21,6 +21,10 @@ export default function App({ Component, pageProps }: AppProps) {
                     content="Fake store rest api for your ecommerce or shopping website prototype"
                 />
                 <meta property="og:locale" content="en_EN" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;900&display=swap"
+                    rel="stylesheet"
+                />
             </Head>
             <MasterProvider>
                 <Layout>
