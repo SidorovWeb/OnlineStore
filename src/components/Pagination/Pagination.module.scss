@@ -1,0 +1,41 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+
+    & > *:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+.pageLink {
+    color: var(--white);
+    font-size: 15px;
+    display: block;
+    cursor: pointer;
+
+    padding: 10.5px 15px;
+    transition: all var(--transition);
+    min-width: 40px;
+}
+
+.pageItem {
+    border-radius: 8px;
+    transition: all var(--transition);
+    background: var(--black2);
+
+    &:hover {
+        background-color: var(--accentLight);
+    }
+}
+
+.pageItemActive {
+    border-radius: 8px;
+    transition: all var(--transition);
+    background: var(--accent);
+
+    &:hover {
+        background-color: var(--accentLight);
+    }
+}

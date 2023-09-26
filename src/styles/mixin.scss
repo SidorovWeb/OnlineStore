@@ -1,0 +1,26 @@
+@mixin adaptive-value($property, $desktop, $mob) {
+    $addSize: $desktop - $mob;
+    $maxWidthContainer: 1318; // ширина всего полотна + padding
+    $md1: 1200px;
+    $md2: 991.98px;
+    $md3: 767.98px;
+    $md4: 479.98px;
+
+    $addMobileSize: $addSize + $addSize * 0.7;
+
+    @media (max-width: 320px) {
+        font-size: $mob + px;
+    }
+
+    @media (max-width: $md3) {
+        #{$property}: calc(#{$mob + px} + #{$addMobileSize} * ((100vw - 320px) / #{$maxWidthContainer}));
+    }
+
+    @media (min-width: $md3) {
+        #{$property}: calc(#{$mob + px} + #{$addSize} * (100vw / #{$maxWidthContainer}));
+    }
+
+    @media (min-width: ($md1)) {
+        #{$property}: $desktop + px;
+    }
+}

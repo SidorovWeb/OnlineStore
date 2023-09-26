@@ -1,0 +1,5 @@
+{
+    "css.format.newlineBetweenRules": true,
+    "css.format.spaceAroundSelectorSeparator": true,
+    "vetur.format.defaultFormatter.css": "prettier"
+}

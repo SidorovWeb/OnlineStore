@@ -1,0 +1,88 @@
+@import '@/styles/mixin.scss';
+
+.productWrap {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 22px;
+    background-color: var(--black);
+    border-radius: 6px;
+
+    @media (max-width: 1200px) {
+        flex-direction: column;
+    }
+}
+
+.product {
+    display: flex;
+    flex-direction: row;
+    margin-right: 32px;
+
+    @media (max-width: 1200px) {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+}
+
+
+.productInfo {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.productTitle {
+    margin-bottom: 10px;
+    color: var(--white);
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.productPrice {
+    color: var(--white);
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+
+.productDesc {
+    color: var(--greyLight2);
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 20px;
+}
+
+.buttonWrap {
+    margin-top: auto;
+    margin-bottom: 20px;
+
+    & > * {
+        margin-bottom: 10px;
+    }
+
+    & > *:not(:last-child) {
+        margin-right: 10px;
+    }
+}
+
+.rate {
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 30px;
+
+
+    & > div {
+        display: inline-block;
+        margin-left: 16px;
+        color: var(--white);
+        font-size: 14px;
+        font-weight: 500;
+    }
+}
+
+.count {
+    color: var(--gray);
+    font-size: 10px;
+    font-weight: 500;
+}

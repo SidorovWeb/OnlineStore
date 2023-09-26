@@ -1,0 +1,49 @@
+.inputWrap {
+    position: relative;
+}
+
+.input {
+    font-family: inherit;
+    margin: 0;
+    font-size: 16px;
+    color: white;
+    width: 228px;
+    height: 38px;
+    padding: 0 0 0 1rem;
+    border: 1px solid transparent;
+    outline: none;
+    border-radius: 8px;
+    background: var(--black2);
+    overflow: hidden;
+    transition: all var(--transition);
+
+
+    &::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    &::placeholder {
+        color: var(--grey3);
+        font-size: 13px;
+        font-weight: 400;
+    }
+
+    &:hover {
+        border: 1px solid var(--accent);
+    }
+
+    &:focus {
+        border: 1px solid var(--accentLight);
+    }
+}
+
+.label {
+    position: absolute;
+    right: 24px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--grey3);
+    font-size: 13px;
+    font-weight: 400;
+}

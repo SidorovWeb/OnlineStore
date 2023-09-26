@@ -1,0 +1,74 @@
+@import '@/styles/mixin.scss';
+
+.banner {
+    background-color: var(--black);
+    padding: 0 30px 94px 30px;
+    border-radius: 6px;
+    position: relative;
+
+    @media (max-width: 767.98px) {
+        padding: 20px 10px 130px 10px;
+    }
+}
+
+.sale {
+    position: relative;
+    z-index: 2;
+    color: var(--background);
+    font-size: clamp(50px, 6vw, 119px);
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+
+    @media (max-width: 479.98px) {
+        font-size: 40px;
+    }
+}
+
+.desc {
+    color: var(--gray);
+    font-weight: 500;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.title {
+    position: relative;
+    color: var(--white);
+    font-size: clamp(24px, 3vw, 42px);
+    font-weight: 600;
+    margin-bottom: 24px;
+    text-transform: uppercase;
+    z-index: 2;
+}
+
+.wrapper {
+    max-width: 480px;
+    width: 100%;
+
+    @media (max-width: 991.98px) {
+        max-width: 380px;
+    }
+
+    @media (max-width: 767.98px) {
+        max-width: 280px;
+    }
+}
+
+.image {
+    z-index: 1;
+    position: absolute;
+    bottom: -25px;
+    right: 40px;
+
+    & img {
+        @include adaptive-value('width', 462, 102);
+        @include adaptive-value('height', 359, 139);
+
+        @media (max-width: 767.98px) {
+            width: 202px;
+            height: 159px;
+        }
+    }
+
+}

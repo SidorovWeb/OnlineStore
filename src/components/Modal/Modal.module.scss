@@ -1,0 +1,78 @@
+.modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 320px;
+    width: 100%;
+    height: 100%;
+    background-color: var(--black);
+    padding: 44px 24px 24px 24px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+    z-index: 999;
+
+    & button[type="submit"] {
+        width: 100%;
+        margin-top: 24px;
+    }
+
+    & input {
+        width: 100%;
+    }
+}
+
+.open {
+    transform: translateX(0);
+}
+
+.title {
+    color: var(--white);
+    font-size: 15px;
+    font-weight: 400;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.form {
+    margin-bottom: 20px;
+
+    & > *:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}
+
+.close {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+
+    & img {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+.error {
+    color: var(--tomato);
+    font-size: 12px;
+}
+
+.haveAnAcc {
+    text-align: center;
+    color: var(--accentLight);
+    font-size: 12px;
+    cursor: pointer;
+    transition: color var(--transition);
+
+    &:hover {
+        color: var(--grey3);
+    }
+
+    &:active {
+        color: var(--gray);
+    }
+}
