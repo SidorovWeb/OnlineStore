@@ -15,4 +15,4 @@ const Custom500: NextPage = () => {
     )
 }
 
-export default 500
+export default Custom500
