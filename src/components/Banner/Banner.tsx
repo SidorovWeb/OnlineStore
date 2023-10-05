@@ -18,6 +18,7 @@ const Banner: FC = () => {
                         alt="LENNON r2d2 with NVIDIA 5090 TI"
                         width={462}
                         height={359}
+                        priority={true}
                     />
                 </div>
                 <Link href={`/products/categories/electronics`}>

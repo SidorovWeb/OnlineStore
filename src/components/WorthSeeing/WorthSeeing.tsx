@@ -53,12 +53,7 @@ const WorthSeeing: FC<ICategoriesData> = ({ categories }) => {
                             key={idx}
                         >
                             <div className={style.img}>
-                                <Image
-                                    src={cat.image}
-                                    alt={cat.category}
-                                    width={292}
-                                    height={230}
-                                />
+                                <Image src={cat.image} alt={cat.category} />
                             </div>
                             <h4 className={style.title}>{cat.category}</h4>
                         </Link>
