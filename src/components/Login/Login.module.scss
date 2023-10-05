@@ -1,0 +1,120 @@
+.title {
+    color: var(--white);
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.form {
+    margin-bottom: 10px;
+
+    & > *:not(:last-child) {
+        margin-bottom: 16px;
+    }
+}
+
+.error {
+    color: var(--tomato);
+    font-size: 12px;
+}
+
+.haveAnAcc {
+    text-align: center;
+    color: var(--accentLight);
+    font-size: 12px;
+    cursor: pointer;
+    transition: color var(--transition);
+    margin-top: 20px;
+
+    &:hover {
+        color: var(--grey3);
+    }
+
+    &:active {
+        color: var(--gray);
+    }
+}
+
+.center {
+    text-align: center;
+    color: var(--grey3);
+    font-size: 14px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+.loginWithGoogle {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.81em 2em;
+    border: none;
+    border-radius: 6px;
+    color: var(--gray);
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 16px;
+    transition: all var(--transition);
+    cursor: pointer;
+
+    & img {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    &:hover {
+        color: var(--white);
+        outline: none;
+        background-color: var(--greyLight);
+    }
+
+    &:active {
+        background-color: var(--greyLight2);
+    }
+
+}
+
+.vk {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 0.81em 2em;
+    border: none;
+    border-radius: 6px;
+    color: #07f;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all var(--transition);
+    cursor: pointer;
+
+    &:hover {
+        color: #07f;
+        outline: none;
+        background-color: var(--greyLight);
+    }
+
+    &:active {
+        background-color: var(--greyLight2);
+    }
+
+    & img {
+        position: absolute;
+        left: 14px;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+
+}
+
+.logOutBtn {
+    margin-top: 40px;
+    width: 100%;
+}

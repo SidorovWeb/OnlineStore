@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react'
 import style from './Trending.module.scss'
 import { IProduct, IProductData } from '@/interfaces/products.interface'
 import Link from 'next/link'
-import { MyButton } from '../UI/Button/Button'
-import Card from '../UI/Card/Card'
+import { MyButton } from '../Button/Button'
+import Card from '../Card/Card'
 
 interface ITrendingData extends IProduct {
     countPeople?: number

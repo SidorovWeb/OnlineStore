@@ -26,22 +26,6 @@
     transform: translateX(0);
 }
 
-.title {
-    color: var(--white);
-    font-size: 15px;
-    font-weight: 400;
-    margin-bottom: 24px;
-    text-align: center;
-}
-
-.form {
-    margin-bottom: 20px;
-
-    & > *:not(:last-child) {
-        margin-bottom: 16px;
-    }
-}
-
 .close {
     position: absolute;
     top: 24px;
@@ -53,26 +37,5 @@
     & img {
         width: 20px;
         height: 20px;
-    }
-}
-
-.error {
-    color: var(--tomato);
-    font-size: 12px;
-}
-
-.haveAnAcc {
-    text-align: center;
-    color: var(--accentLight);
-    font-size: 12px;
-    cursor: pointer;
-    transition: color var(--transition);
-
-    &:hover {
-        color: var(--grey3);
-    }
-
-    &:active {
-        color: var(--gray);
     }
 }

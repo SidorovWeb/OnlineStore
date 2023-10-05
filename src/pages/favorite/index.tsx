@@ -4,7 +4,7 @@ import { useContext } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { IProduct } from '@/interfaces/products.interface'
-import { MyButton } from '@/components/UI/Button/Button'
+import { MyButton } from '@/components/Button/Button'
 import { CartContext } from '@/contex/CartProvider'
 
 const FavoritePage: NextPage = () => {

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import style from './Banner.module.scss'
-import { MyButton } from '../UI/Button/Button'
+import { MyButton } from '../Button/Button'
 import Image from 'next/image'
 import Comp from '../../../public/comp.png'
 import Link from 'next/link'

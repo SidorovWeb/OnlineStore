@@ -8,8 +8,8 @@ import Pagination, { paginate } from '@/components/Pagination/Pagination'
 import { useEffect, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Card from '@/components/UI/Card/Card'
-import MyInput from '@/components/UI/Input/MyInput'
+import Card from '@/components/Card/Card'
+import MyInput from '@/components/Input/MyInput'
 
 const CategoryPage: NextPage<IProductData> = ({ products }) => {
     const { query } = useRouter()

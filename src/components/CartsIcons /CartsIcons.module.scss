@@ -1,0 +1,23 @@
+.favorites,
+.basket {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.count {
+    position: absolute;
+    right: -15%;
+    bottom: 0;
+    font-size: 9px;
+    line-height: 12px;
+    padding: 0 4px;
+    min-width: 12px;
+    border-radius: 12px;
+    overflow: hidden;
+    background-color: var(--accentLight);
+    font-weight: 500;
+    color: var(--white);
+}

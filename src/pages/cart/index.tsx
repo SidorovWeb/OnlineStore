@@ -1,6 +1,6 @@
 import { NextPage } from 'next'
 import style from './cart.module.scss'
-import { MyButton } from '@/components/UI/Button/Button'
+import { MyButton } from '@/components/Button/Button'
 import { useContext, useEffect, useState } from 'react'
 import Image from 'next/image'
 import Delete from '../../../public/delete.svg'

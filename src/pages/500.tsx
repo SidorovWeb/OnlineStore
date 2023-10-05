@@ -1,4 +1,4 @@
-import { MyButton } from '@/components/UI/Button/Button'
+import { MyButton } from '@/components/Button/Button'
 import { NextPage } from 'next'
 import Link from 'next/link'
 

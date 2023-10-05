@@ -1,15 +1,15 @@
 import { PropsWithChildren } from 'react'
 import CartProvider from './CartProvider'
 import ModalProvider from './ModalProvider'
-import UserProvider from './UserProvider'
+import { SessionProvider } from 'next-auth/react'
 
 const MasterProvider = ({ children }: PropsWithChildren) => {
     return (
-        <UserProvider>
+        <SessionProvider>
             <ModalProvider>
                 <CartProvider>{children}</CartProvider>
             </ModalProvider>
-        </UserProvider>
+        </SessionProvider>
     )
 }
 

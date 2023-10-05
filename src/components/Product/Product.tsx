@@ -1,8 +1,7 @@
 import { FC, useContext, useEffect, useState } from 'react'
-import { MyButton } from '@/components/UI/Button/Button'
+import { MyButton } from '@/components/Button/Button'
 import Image from 'next/image'
 import { Swiper, SwiperClass, SwiperSlide } from 'swiper/react'
-
 import { FreeMode, Thumbs, Navigation } from 'swiper/modules'
 import 'swiper/scss'
 import 'swiper/scss/free-mode'
@@ -131,28 +130,31 @@ const Product: FC<IProductSingle> = ({ product }) => {
                     Rate: <div>{product.rating.rate}</div>
                 </div>
                 <div className={style.buttonWrap}>
-                    {isAddToCart ? (
-                        <MyButton
-                            onClick={() => handlerDeleteFromCart(product)}
-                        >
-                            Delete to cart
-                        </MyButton>
-                    ) : (
-                        <MyButton onClick={() => handlerAddToCart(product)}>
-                            Add to cart
-                        </MyButton>
-                    )}
-                    {isAddToFavorite ? (
-                        <MyButton
-                            onClick={() => handlerDeleteFromFavorite(product)}
-                        >
-                            Delete to favorites
-                        </MyButton>
-                    ) : (
-                        <MyButton onClick={() => handlerAddToFavorite(product)}>
-                            Add to favorites
-                        </MyButton>
-                    )}
+                    <MyButton
+                        onClick={() => {
+                            if (isAddToCart) {
+                                handlerDeleteFromCart(product)
+                            } else {
+                                handlerAddToCart(product)
+                            }
+                        }}
+                    >
+                        {isAddToCart ? 'Delete to cart' : 'Add to cart'}
+                    </MyButton>
+
+                    <MyButton
+                        onClick={() => {
+                            if (isAddToFavorite) {
+                                handlerDeleteFromFavorite(product)
+                            } else {
+                                handlerAddToFavorite(product)
+                            }
+                        }}
+                    >
+                        {isAddToFavorite
+                            ? 'Delete to favorites'
+                            : 'Add to favorites'}
+                    </MyButton>
                 </div>
                 <div className={style.count}>
                     {product.rating.count} items of this product left!
