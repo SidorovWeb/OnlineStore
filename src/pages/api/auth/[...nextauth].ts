@@ -43,6 +43,8 @@ export default NextAuth({
         }),
     ],
 
+    secret: process.env.NEXTAUTH_SECRET as string,
+
     callbacks: {
         async jwt({ token, user }) {
             if (user) {
@@ -60,6 +62,4 @@ export default NextAuth({
             return session
         },
     },
-
-    secret: process.env.CLIENT_SECRET as string,
 })
