@@ -5,17 +5,13 @@ import Link from 'next/link'
 import { MyButton } from '../Button/Button'
 import Card from '../Card/Card'
 
-interface ITrendingData extends IProduct {
-    countPeople?: number
-}
-
 interface ITrending extends IProductData {
     title: string
 }
 
 const Trending: FC<ITrending> = ({ products, title }) => {
-    const [randomProduct, setRandomProduct] = useState<ITrendingData[]>()
-    const [tail, setTail] = useState<ITrendingData[]>()
+    const [randomProduct, setRandomProduct] = useState<IProduct[]>()
+    const [tail, setTail] = useState<IProduct[]>()
 
     useEffect(() => {
         setRandomProduct(products)
@@ -26,7 +22,7 @@ const Trending: FC<ITrending> = ({ products, title }) => {
             return
         }
 
-        const mappingRandomElements = addsPropertyToElements(tail)
+        const mappingRandomElements = addsRandomElements(tail)
 
         if (mappingRandomElements) {
             setRandomProduct(randomProduct?.concat(mappingRandomElements))
@@ -36,20 +32,14 @@ const Trending: FC<ITrending> = ({ products, title }) => {
 
     useEffect(() => {
         const randomElements = products.sort(() => 0.5 - Math.random())
-        const mappingRandomElements = addsPropertyToElements(randomElements)
+        const mappingRandomElements = addsRandomElements(randomElements)
 
         setRandomProduct(mappingRandomElements)
         setTail(randomElements.slice(5, randomElements.length))
     }, [])
 
-    function addsPropertyToElements(randomElements: IProduct[]) {
-        const fiveElements = randomElements.slice(0, 5)
-
-        return fiveElements.map((b) => {
-            const countPeople = Math.floor(Math.random() * 20 + 1)
-
-            return { ...b, countPeople }
-        })
+    function addsRandomElements(randomElements: IProduct[]) {
+        return randomElements.slice(0, 5)
     }
 
     return (

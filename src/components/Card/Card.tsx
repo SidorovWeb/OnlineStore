@@ -23,9 +23,6 @@ const Card: FC<IProductSingle> = ({ product }) => {
                             {Math.floor(product.price)}$
                         </p>
                     </div>
-                    <p className={style.buy}>
-                        {product.countPeople} people purchased
-                    </p>
                 </div>
             </div>
         </div>
