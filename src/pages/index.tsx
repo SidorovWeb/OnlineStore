@@ -9,9 +9,9 @@ import { GetStaticProps, NextPage } from 'next'
 const HomePage: NextPage<IHomePageProps> = ({ categories, products }) => {
     return (
         <>
-            <Banner />
-            {/* <Trending products={products} title={'Trending'} /> */}
-            <WorthSeeing categories={categories} />
+            {/* <Banner /> */}
+            {/* <Trending products={products} title={'Trending'} />
+            <WorthSeeing categories={categories} /> */}
         </>
     )
 }
