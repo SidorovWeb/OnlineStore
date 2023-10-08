@@ -2,7 +2,7 @@ import { FC } from 'react'
 import style from './Banner.module.scss'
 import { MyButton } from '../Button/Button'
 import Image from 'next/image'
-import Comp from '../../../public/comp.png'
+import Comp from '../../../public/comp.webp'
 import Link from 'next/link'
 
 const Banner: FC = () => {
