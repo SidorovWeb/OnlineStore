@@ -10,7 +10,7 @@ const HomePage: NextPage<IHomePageProps> = ({ categories, products }) => {
     return (
         <>
             <Banner />
-            <Trending products={products} title={'Trending'} />
+            {/* <Trending products={products} title={'Trending'} /> */}
             <WorthSeeing categories={categories} />
         </>
     )
