@@ -57,6 +57,7 @@
 .card {
     transform: translateY(0);
     transition: all var(--transition);
+    min-height: 269px;
 
     &:hover {
         transform: translateY(-3px);
