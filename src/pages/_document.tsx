@@ -5,8 +5,9 @@ export default function Document() {
         <Html lang="ru">
             <Head>
                 <link
-                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;900&display=swap"
                     rel="preconnect"
+                    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;900&display=swap"
+                    // crossorigin=
                 />
             </Head>
             <body>
