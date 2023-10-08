@@ -16,6 +16,7 @@
     display: grid;
     gap: 20px;
     grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    min-height: 460px;
 
     @media (max-width: 1335px) {
         grid-template-columns: repeat(3, 1fr);

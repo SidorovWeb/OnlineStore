@@ -21,7 +21,7 @@
     grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     align-items: center;
     justify-content: center;
-
+    min-height: 269px;
 
     @media (max-width: 1090px) {
         grid-template-columns: repeat(3, 1fr);
@@ -57,7 +57,6 @@
 .card {
     transform: translateY(0);
     transition: all var(--transition);
-    min-height: 269px;
 
     &:hover {
         transform: translateY(-3px);
