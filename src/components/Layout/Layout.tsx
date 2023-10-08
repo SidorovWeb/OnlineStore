@@ -7,7 +7,7 @@ import Sidebar from '../Sidebar/Sidebar'
 const Layout: FC<PropsWithChildren<unknown>> = ({ children }) => {
     return (
         <div className={style.layout}>
-            <Header />
+            {/* <Header /> */}
             <main className={style.main}>
                 <Sidebar />
                 {children}
