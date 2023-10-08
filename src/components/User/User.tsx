@@ -8,7 +8,6 @@ import Image from 'next/image'
 const User: FC = () => {
     const { setModal } = useContext(ModalContext)
     const session = useSession()
-    console.log(session)
 
     return (
         <div className={style.user} onClick={() => setModal(true)}>
