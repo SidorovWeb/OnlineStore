@@ -5,13 +5,22 @@ import { ICategoriesData } from '@/interfaces/categories.interface'
 import { IProductData } from '@/interfaces/products.interface'
 import { StoreService } from '@/services/store.service'
 import { GetStaticProps, NextPage } from 'next'
+import { useEffect, useState } from 'react'
 
 const HomePage: NextPage<IHomePageProps> = ({ categories, products }) => {
+    const [mounted, setMounted] = useState(false)
+    useEffect(() => {
+        setMounted(true)
+    }, [])
+    if (!mounted) {
+        return null // return this null to avoid hydration errors
+    }
+
     return (
         <>
             <Banner />
-            {/* <Trending products={products} title={'Trending'} />
-            <WorthSeeing categories={categories} /> */}
+            <Trending products={products} title={'Trending'} />
+            <WorthSeeing categories={categories} />
         </>
     )
 }
