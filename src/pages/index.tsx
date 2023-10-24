@@ -10,27 +10,26 @@ const HomePage: NextPage<IHomePageProps> = ({ categories, products }) => {
     return (
         <>
             <Banner />
-            {/* <Trending products={products} title={'Trending'} /> */}
-            {/* <WorthSeeing categories={categories} /> */}
+            <Trending products={products} title={'Trending'} />
+            <WorthSeeing categories={categories} />
         </>
     )
 }
 
 export default HomePage
 
-// export const getStaticProps: GetStaticProps = async () => {
-//     const categories = await StoreService.getCategories()
-//     const products = await StoreService.getProductsAll()
+export const getStaticProps: GetStaticProps = async () => {
+    const categories = await StoreService.getCategories()
+    const products = await StoreService.getProductsAll()
 
-//     if (!categories || !products) {
-//         return {
-//             notFound: true,
-//         }
-//     }
-//     return {
-//         props: { categories, products },
-//         revalidate: 60,
-//     }
-// }
+    if (!categories || !products) {
+        return {
+            notFound: true,
+        }
+    }
+    return {
+        props: { categories, products },
+    }
+}
 
 export type IHomePageProps = ICategoriesData & IProductData
