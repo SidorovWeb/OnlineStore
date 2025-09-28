@@ -150,7 +150,7 @@ export default CategoryPage;
 export const getStaticPaths: GetStaticPaths<Params> = async () => {
   const categoriesData = await StoreService.getCategories();
 
-  // Extract category strings from the nested structure
+  // Извлекаем названия категорий из вложенных массивов
   const categoryNames = categoriesData.flatMap(
     (category) => category.categories
   );
@@ -158,7 +158,7 @@ export const getStaticPaths: GetStaticPaths<Params> = async () => {
   return {
     paths: categoryNames.map((categoryName) => ({
       params: {
-        id: categoryName,
+        id: categoryName, // Теперь здесь действительно строка
       },
     })),
     fallback: "blocking",
