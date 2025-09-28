@@ -1,6 +1,6 @@
 import Banner from "@/components/Banner/Banner";
 import style from "./singleCategories.module.scss";
-import { IProduct } from "@/interfaces/products.interface";
+import { IProduct, IProductData } from "@/interfaces/products.interface";
 import { StoreService } from "@/services/store.service";
 import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { ParsedUrlQuery } from "querystring";
@@ -8,18 +8,12 @@ import Pagination, { paginate } from "@/components/Pagination/Pagination";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/router";
-import Card from "@/components/Card/Card";
 import MyInput from "@/components/Input/MyInput";
+import Card from "@/components/Card/Card";
+// import Card from "@/components/UI/Card/Card";
+// import MyInput from "@/components/UI/Input/MyInput";
 
-interface Params extends ParsedUrlQuery {
-  id: string;
-}
-
-interface ICategoryPageProps {
-  products: IProduct[];
-}
-
-const CategoryPage: NextPage<ICategoryPageProps> = ({ products }) => {
+const CategoryPage: NextPage<IProductData> = ({ products }) => {
   const { query } = useRouter();
   const [currentPage, setCurrentPage] = useState(1);
   const [pageSize, setPageSize] = useState(4);
@@ -109,8 +103,7 @@ const CategoryPage: NextPage<ICategoryPageProps> = ({ products }) => {
               defaultValue={filterByPrice}
               onChange={(e) => {
                 if (isNaN(Number(e.target.value))) {
-                  // Просто не обновляем состояние, если значение не число
-                  return;
+                  return false;
                 }
                 onChange(Number(e.target.value));
               }}
@@ -120,13 +113,13 @@ const CategoryPage: NextPage<ICategoryPageProps> = ({ products }) => {
           </div>
           <div className={style.list}>
             {paginatedProduct.length > 0 ? (
-              paginatedProduct.map((product) => (
+              paginatedProduct.map((products) => (
                 <Link
-                  href={`/products/${product.id}`}
+                  href={`/products/${products.id}`}
                   className={style.card}
-                  key={product.id}
+                  key={products.id}
                 >
-                  <Card product={product} />
+                  <Card product={products} />
                 </Link>
               ))
             ) : (
@@ -147,54 +140,34 @@ const CategoryPage: NextPage<ICategoryPageProps> = ({ products }) => {
 
 export default CategoryPage;
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const categoriesData = await StoreService.getCategories();
+interface Params extends ParsedUrlQuery {
+  id: string;
+}
 
-  // Извлекаем названия категорий из вложенных массивов
-  const categoryNames = categoriesData.flatMap(
-    (category) => category.categories
-  );
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+  const products = await StoreService.getProductsAll();
 
   return {
-    paths: categoryNames.map((categoryName) => ({
+    paths: products.map((p) => ({
       params: {
-        id: categoryName, // Теперь здесь действительно строка
+        id: String(p.id),
       },
     })),
     fallback: "blocking",
   };
 };
 
-export const getStaticProps: GetStaticProps<
-  ICategoryPageProps,
-  Params
-> = async ({ params }) => {
-  if (!params?.id) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
+  const products = await StoreService.getSpecificCategory(String(params?.id));
+  const categories = await StoreService.getCategories();
+
+  if (!categories || !products) {
     return {
       notFound: true,
     };
   }
 
-  try {
-    const productsData = await StoreService.getSpecificCategory(
-      String(params.id)
-    );
-
-    if (!productsData || productsData.length === 0) {
-      return {
-        notFound: true,
-      };
-    }
-
-    // Extract the actual products array from the IProductData structure
-    const products = productsData[0].products;
-
-    return {
-      props: { products },
-    };
-  } catch (error) {
-    return {
-      notFound: true,
-    };
-  }
+  return {
+    props: { categories, products },
+  };
 };
