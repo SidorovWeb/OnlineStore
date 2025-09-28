@@ -144,17 +144,41 @@ interface Params extends ParsedUrlQuery {
   id: string;
 }
 
-export const getStaticPaths: GetStaticPaths<Params> = async () => {
-  const products = await StoreService.getProductsAll();
+// export const getStaticPaths: GetStaticPaths<Params> = async () => {
+//   const products = await StoreService.getProductsAll();
 
-  return {
-    paths: products.map((p) => ({
-      params: {
-        id: String(p.id),
-      },
-    })),
-    fallback: "blocking",
-  };
+//   return {
+//     paths: products.map((p) => ({
+//       params: {
+//         id: String(p.id),
+//       },
+//     })),
+//     fallback: "blocking",
+//   };
+// };
+
+export const getStaticPaths: GetStaticPaths<Params> = async () => {
+  try {
+    const categoriesData = await StoreService.getCategories();
+
+    // API возвращает массив с одним объектом, содержащим все категории
+    const categoryNames = categoriesData[0]?.categories || [];
+
+    return {
+      paths: categoryNames.map((categoryName) => ({
+        params: {
+          id: categoryName,
+        },
+      })),
+      fallback: "blocking",
+    };
+  } catch (error) {
+    console.error("Ошибка при получении категорий:", error);
+    return {
+      paths: [],
+      fallback: "blocking",
+    };
+  }
 };
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
